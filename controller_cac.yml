@@ -21,9 +21,9 @@
         msg:
           - "TOWER_HOST={{ lookup('env', 'TOWER_HOST') }}"
           - "AWX_HOST={{ lookup('env', 'AWX_HOST') }}"
-          - "GUID={{ lookup('env', 'AWX_HOST').split'.'[1] }}"
-          - "Student={{ lookup('env', 'AWX_HOST').split'.'[0] | urlsplit('hostname') }}"
-          - "Workshop={{ lookup('env', 'AWX_HOST').split'.'[1] }}"
+          - "GUID={{ lookup('env', 'AWX_HOST').split('.')[1]  }}"
+          - "Student={{ lookup('env', 'AWX_HOST').split('.')[0]  | urlsplit('hostname') }}"
+          - "Workshop={{ lookup('env', 'AWX_HOST').split('.')[1]  }}"
           - "Workshop DNS Zone={{ lookup('env', 'AWX_HOST').split('.',2)[2] }}"
 
     - name: Configure controller from project group_vars
