@@ -71,8 +71,7 @@ controller_workflows:
         unified_job_template: UTILITY / Set instance tags
         organization: Default
         all_parents_must_converge: false
-        success_nodes:
-          - []
+        success_nodes: []
   - name: OS / Upgrade 7-8-9
     description: Workflow for Snapshot and Leapp Upgrade 7-8 and 8-9
     extra_vars:
