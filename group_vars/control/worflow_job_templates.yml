@@ -71,34 +71,6 @@ controller_workflows:
         unified_job_template: UTILITY / Set instance tags
         organization: Default
         all_parents_must_converge: false
-        success_nodes:
-          - EC2 Dynamic Source - rhel7
-      - identifier: EC2 Dynamic Source - rhel7
-        unified_job_template: EC2 Dynamic Source - rhel7
-        organization: Default
-        all_parents_must_converge: false
-        type: inventory_source
-        success_nodes:
-          - EC2 Dynamic Source - rhel8
-      - identifier: EC2 Dynamic Source - rhel8
-        unified_job_template: EC2 Dynamic Source - rhel8
-        organization: Default
-        all_parents_must_converge: false
-        type: inventory_source
-        success_nodes:
-          - EC2 Dynamic Source - rhel9
-      - identifier: EC2 Dynamic Source - rhel9
-        unified_job_template: EC2 Dynamic Source - rhel9
-        organization: Default
-        all_parents_must_converge: false
-        type: inventory_source
-        success_nodes:
-          - EC2 Dynamic Source - ALL_rhel
-      - identifier: EC2 Dynamic Source - ALL_rhel
-        unified_job_template: EC2 Dynamic Source - ALL_rhel
-        organization: Default
-        all_parents_must_converge: false
-        type: inventory_source
         success_nodes: []
   - name: OS / Upgrade 7-8-9
     description: Workflow for Snapshot and Leapp Upgrade 7-8 and 8-9
@@ -165,34 +137,6 @@ controller_workflows:
         unified_job_template: Z / SETUP / Cockpit - Web Console
         organization: Default
         all_parents_must_converge: false
-        success_nodes:
-          - Extend partition and resize physical volume
-      - identifier: EC2 Dynamic Source - rhel7
-        unified_job_template: EC2 Dynamic Source - rhel7
-        organization: Default
-        all_parents_must_converge: false
-        type: inventory_source
-        success_nodes:
-          - EC2 Dynamic Source - rhel8
-      - identifier: EC2 Dynamic Source - rhel8
-        unified_job_template: EC2 Dynamic Source - rhel8
-        organization: Default
-        all_parents_must_converge: false
-        type: inventory_source
-        success_nodes:
-          - EC2 Dynamic Source - rhel9
-      - identifier: EC2 Dynamic Source - rhel9
-        unified_job_template: EC2 Dynamic Source - rhel9
-        organization: Default
-        all_parents_must_converge: false
-        type: inventory_source
-        success_nodes:
-          - EC2 Dynamic Source - ALL_rhel
-      - identifier: EC2 Dynamic Source - ALL_rhel
-        unified_job_template: EC2 Dynamic Source - ALL_rhel
-        organization: Default
-        all_parents_must_converge: true
-        type: inventory_source
         success_nodes:
           - Extend partition and resize physical volume
       - identifier: Extend partition and resize physical volume
