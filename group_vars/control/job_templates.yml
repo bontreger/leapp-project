@@ -273,8 +273,8 @@ controller_templates:
     extra_vars:
       instances:
         tags:
-          guid: "{{ lookup('env', 'AWX_HOST').split('.')[1] }}"
-          Student: "{{ lookup('env', 'AWX_HOST').split('.')[0] | urlsplit('hostname') }}"
+          guid: "{{ lookup('env', 'TOWER_HOST').split('.')[1] }}"
+          Student: "{{ lookup('env', 'TOWER_HOST').split('.')[0] | urlsplit('hostname') }}"
           operating_system: rhel
   - name: UTILITY / Update inventories via dynamic sources
     project: Project Leapp
@@ -332,8 +332,8 @@ controller_templates:
     extra_vars:
       instances_template:
         tags:
-          guid: "{{ lookup('env', 'AWX_HOST').split('.')[1] }}"
-          Student: "{{ lookup('env', 'AWX_HOST').split('.')[0] | urlsplit('hostname') }}"
+          guid: "{{ lookup('env', 'TOWER_HOST').split('.')[1] }}"
+          Student: "{{ lookup('env', 'TOWER_HOST').split('.')[0] | urlsplit('hostname') }}"
           operating_system: rhel
     ask_limit_on_launch: true
   - name: UTILITY / Extend partition and resize physical volume
@@ -426,9 +426,9 @@ controller_templates:
     extra_vars:
       instances:
         tags:
-          Workshop: "{{ lookup('env', 'AWX_HOST' ).split('.')[1] }}"
-      student: "{{ lookup('env', 'AWX_HOST').split('.')[0] | urlsplit('hostname') }}"
-      workshop_dns_zone: "{{ lookup('env', 'AWX_HOST').split('.',2)[2] }}"
+          Workshop: "{{ lookup('env', 'TOWER_HOST' ).split('.')[1] }}"
+      student: "{{ lookup('env', 'TOWER_HOST').split('.')[0] | urlsplit('hostname') }}"
+      workshop_dns_zone: "{{ lookup('env', 'TOWER_HOST').split('.',2)[2] }}"
 
   - name: Demo Job Template
     state: absent
