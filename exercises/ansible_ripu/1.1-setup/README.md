@@ -29,13 +29,10 @@ The workshop is provisioned with a pre-configured lab environment. You will have
 | Role                 | Inventory name |
 | ---------------------| ---------------|
 | AAP Control Host     | ansible-1      |
-| RHEL7 pet app host 1 | tidy-bengal    |
-| RHEL8 pet app host 1 | more-calf      |
-| RHEL9 pet app host 2 | upward-moray   |
+| RHEL7 pet app host 1 | rhel7          |
+| RHEL8 pet app host 1 | rhel8          |
+| RHEL9 pet app host 1 | rhel9          |
 
-> **Note**
->
-> The inventory names of the pet app hosts will be random pet names different from the example above. <!-- FIXME: The workshop launch page provided by your instructor will list the names actually provisioned with your workshop instance. --> We'll dive deeper into why we are using random names in a later exercise.
 
 ### Step 1 - Access the Environment
 
