@@ -14,42 +14,22 @@ controller_groups:
       - node1
       - node2
       - node3
-    variables: |
-      ---
-      ansible_connection: smart
-      ansible_user: ansible
-      ansible_become: true
 
   - name: rhel7
     inventory: Workshop Inventory
     description: RHEL 7 hosts in the workshop
     hosts:
       - node1
-    variables: |
-      ---
-      ansible_connection: smart
-      ansible_user: ansible
-      ansible_become: true
 
   - name: rhel8
     inventory: Workshop Inventory
     description: RHEL 8 hosts in the workshop
     hosts:
       - node2
-    variables: |
-      ---
-      ansible_connection: smart
-      ansible_user: ansible
-      ansible_become: true
 
   - name: rhel9
     inventory: Workshop Inventory
     description: RHEL 9 hosts in the workshop
     hosts:
       - node3
-    variables: |
-      ---
-      ansible_connection: smart
-      ansible_user: ansible
-      ansible_become: true
 ...
