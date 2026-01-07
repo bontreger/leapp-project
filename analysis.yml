@@ -25,9 +25,9 @@
         - "'rhui' in yum_repolist.stdout"
         - ansible_distribution_major_version|int == 7
 
-    - name: Ensure leapp package is installed and available
+    - name: Ensure leapp package and leapp-dependencies are installed and available
       ansible.builtin.package:
-        name: leapp
+        name: leapp*
         state: present
 
     - name: Set analysis package list facts for preupgrade analysis for RHUI Marketplace Leapp upgrades
