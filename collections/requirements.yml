@@ -12,9 +12,6 @@ collections:
 - name: infra.controller_configuration
   version: "2.4.1" # Version range identifiers (default: ``*``)
   source: https://galaxy.ansible.com # The Galaxy URL to pull the collection from (default: ``--api-server`` from cmdline)
-- name: infra.aap_configuration
-  version: "3.9.1" # Version range identifiers (default: ``*``)
-  source: https://galaxy.ansible.com # The Galaxy URL to pull the collection from (default: ``--api-server`` from cmdline)
 - name: infra.leapp
   version: "1.4.0" # Version range identifiers (default: ``*``)
   source: https://galaxy.ansible.com # The Galaxy URL to pull the collection from (default: ``--api-server`` from cmdline)
