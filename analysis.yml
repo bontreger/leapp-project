@@ -30,6 +30,11 @@
         name: leapp*
         state: present
 
+    - name: Prepare cockpit-leapp for future exercises
+      ansible.builtin.package:
+        name: cockpit-leapp
+        state: present
+
     - name: Set analysis package list facts for preupgrade analysis for RHUI Marketplace Leapp upgrades
       ansible.builtin.set_fact:
         analysis_packages_el7:
