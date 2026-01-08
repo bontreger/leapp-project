@@ -5,6 +5,7 @@ controller_templates:
     project: Project Leapp
     playbook: leapp_lab_initialization.yml
     inventory: Workshop Inventory
+    limit: ALL_rhel
     credentials:
       - Workshop Credential
   - name: OS / Patch OS to latest
