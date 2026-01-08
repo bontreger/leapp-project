@@ -11,17 +11,6 @@
     path: /usr/bin/leapp
   register: leapp_utility_check
 
-- name: Configure firewalld
-  ansible.builtin.lineinfile:
-    path: "/etc/firewalld/firewalld.conf"
-    regex: "^(#)?{{ item.key }}"
-    line: "{{ item.key }}={{ item.value }}"
-    state: present
-  loop:
-    - {key: "AllowZoneDrifting", value: "no"}
-  notify:
-    - Restart firewalld
-
 - name: Check VDO devices if present # noqa command-instead-of-module
   ansible.builtin.shell: |
     set -o pipefail
