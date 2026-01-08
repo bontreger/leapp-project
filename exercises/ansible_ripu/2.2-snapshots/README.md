@@ -26,6 +26,11 @@
 
 ## Guide
 
+> [!WARNING]
+> Since migrating the lab environment from AWS to OCP, the snapshot code has not been reimplemented.
+>
+> This section will be updated as snapshot content is reintroduced.
+
 In the previous exercise, we launched the automation to start the RHEL in-place upgrades of our pet application servers. The first step of the upgrade workflow template is to create a snapshot for each RHEL instance being upgraded. If something goes wrong with an upgrade, the snapshot makes it possible to quickly undo the upgrade.
 
 Automating snapshots can be one of the most difficult features of the RHEL in-place upgrade solution approach. In this exercise, we will explore some of the challenges that enterprises face and look at strategies for overcoming them.
