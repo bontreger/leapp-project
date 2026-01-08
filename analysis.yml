@@ -27,9 +27,24 @@
 
     - name: Ensure leapp package and leapp-dependencies are installed and available
       ansible.builtin.package:
-        name: leapp*
+        name: leapp, leapp-upgrade-el7toel8, cockpit-leapp
         state: present
       ignore_errors: true
+      when: ansible_distribution_major_version | int == 7
+
+    - name: Ensure leapp package and leapp-dependencies are installed and available
+      ansible.builtin.package:
+        name: leapp, leapp-upgrade-el8toel9, cockpit-leapp
+        state: present
+      ignore_errors: true
+      when: ansible_distribution_major_version | int == 8
+
+    - name: Ensure leapp package and leapp-dependencies are installed and available
+      ansible.builtin.package:
+        name: leapp, leapp-upgrade-el9toel10, cockpit-leapp
+        state: present
+      ignore_errors: true
+      when: ansible_distribution_major_version | int == 9
 
     - name: Prepare cockpit-leapp for future exercises
       ansible.builtin.package:
