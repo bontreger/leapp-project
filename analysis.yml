@@ -29,6 +29,7 @@
       ansible.builtin.package:
         name: leapp*
         state: present
+      ignore_errors: true
 
     - name: Prepare cockpit-leapp for future exercises
       ansible.builtin.package:
