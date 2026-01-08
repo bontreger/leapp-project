@@ -12,32 +12,6 @@
         - name: Perform OS upgrade
           ansible.builtin.import_role:
             name: infra.leapp.upgrade
-          vars:
-            leapp_upgrade_skip_inhibitors: false
-            leapp_repos_enabled:
-              - ripu-upgrade-rhel-8-baseos
-              - ripu-upgrade-rhel-8-appstream
-          when: ansible_distribution_major_version | int == 7
-
-        - name: Perform OS upgrade
-          ansible.builtin.import_role:
-            name: infra.leapp.upgrade
-          vars:
-            leapp_upgrade_skip_inhibitors: false
-            leapp_repos_enabled:
-              - ripu-upgrade-rhel-9-baseos
-              - ripu-upgrade-rhel-9-appstream
-          when: ansible_distribution_major_version | int == 8
-
-        - name: Perform OS upgrade
-          ansible.builtin.import_role:
-            name: infra.leapp.upgrade
-          vars:
-            leapp_upgrade_skip_inhibitors: false
-            leapp_repos_enabled:
-              - ripu-upgrade-rhel-10-baseos
-              - ripu-upgrade-rhel-10-appstream
-          when: ansible_distribution_major_version | int == 10
           
       always:
         - name: Log upgrade status
