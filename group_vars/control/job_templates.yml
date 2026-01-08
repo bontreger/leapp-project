@@ -1,5 +1,12 @@
 ---
 controller_templates:
+  - name: Ansible Leapp Lab initailization
+    description: Initialize the Ansible Leapp Lab environment
+    project: Project Leapp
+    playbook: leapp_lab_initialization.yml
+    inventory: Workshop Inventory
+    credentials:
+      - Workshop Credential
   - name: OS / Patch OS to latest
     project: Project Leapp
     playbook: pkgs_full_update.yml

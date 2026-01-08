@@ -8,6 +8,4 @@
     msg: "Begin Controller CaC loop role: {{ controller_infra_vars }}"
 
 - ansible.builtin.include_tasks: controller_cac_subtasks_retry.yml
-
-- ansible.builtin.include_tasks: inhibitor_create.yml
 ...
