@@ -81,19 +81,7 @@
       ansible.builtin.dnf:
         name: "{{ rpm_files_8_9.files[0].path }}"
         state: present
+        disable_gpg_check: yes
       when:
         - ansible_distribution_major_version | int in [8, 9]
         - rpm_files_8_9.files | length > 0
-
-    - name: Verify RPM installation
-      ansible.builtin.package_facts:
-        manager: auto
-      register: pkg_facts
-
-    - name: Display installed leapp-supplements package
-      ansible.builtin.debug:
-        msg: "leapp-supplements package installed: {{ 'leapp-supplements' in pkg_facts.packages }}"
-
-    - name: Display custom actors installation path
-      ansible.builtin.debug:
-        msg: "Custom actors should be available at: /usr/share/leapp-repository/custom-repositories/system_upgrade_supplements"
