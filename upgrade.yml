@@ -13,7 +13,7 @@
           ansible.builtin.import_role:
             name: infra.leapp.upgrade
           vars:
-            leapp_upgrade_skip_inhibitors: true
+            leapp_upgrade_skip_inhibitors: false
             leapp_repos_enabled:
               - ripu-upgrade-rhel-8-baseos
               - ripu-upgrade-rhel-8-appstream
@@ -23,7 +23,7 @@
           ansible.builtin.import_role:
             name: infra.leapp.upgrade
           vars:
-            leapp_upgrade_skip_inhibitors: true
+            leapp_upgrade_skip_inhibitors: false
             leapp_repos_enabled:
               - ripu-upgrade-rhel-9-baseos
               - ripu-upgrade-rhel-9-appstream
@@ -33,7 +33,7 @@
           ansible.builtin.import_role:
             name: infra.leapp.upgrade
           vars:
-            leapp_upgrade_skip_inhibitors: true
+            leapp_upgrade_skip_inhibitors: false
             leapp_repos_enabled:
               - ripu-upgrade-rhel-10-baseos
               - ripu-upgrade-rhel-10-appstream
