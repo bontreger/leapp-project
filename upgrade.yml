@@ -9,6 +9,31 @@
   tasks:
     - name: Upgrade block
       block:
+      
+        - name: Add Leapp repos
+          ansible.builtin.shell: |
+            set -o pipefail
+            leapp preupgrade --enablerepo=ripu-upgrade-rhel-8-baseos --enablerepo=ripu-upgrade-rhel-8-appstream
+          args:
+            executable: /bin/bash
+          when: ansible_distribution_major_version|int == 7
+
+        - name: Add Leapp repos
+          ansible.builtin.shell: |
+            set -o pipefail
+            leapp preupgrade --enablerepo=ripu-upgrade-rhel-9-baseos --enablerepo=ripu-upgrade-rhel-9-appstream
+          args:
+            executable: /bin/bash
+          when: ansible_distribution_major_version|int == 8
+
+        - name: Add Leapp repos
+          ansible.builtin.shell: |
+            set -o pipefail
+            leapp preupgrade --enablerepo=ripu-upgrade-rhel-10-baseos --enablerepo=ripu-upgrade-rhel-10-appstream
+          args:
+            executable: /bin/bash
+          when: ansible_distribution_major_version|int == 9
+
         - name: Perform OS upgrade
           ansible.builtin.import_role:
             name: infra.leapp.upgrade

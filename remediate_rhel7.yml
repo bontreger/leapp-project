@@ -36,11 +36,4 @@
     - {key: "PasswordAuthentication", value: "no"}
   notify:
     - Restart sshd
-
-- name: Add Leapp repos
-  ansible.builtin.shell: |
-    set -o pipefail
-    leapp preupgrade --enablerepo=ripu-upgrade-rhel-8-baseos --enablerepo=ripu-upgrade-rhel-8-appstream
-  args:
-    executable: /bin/bash
 ...

@@ -11,10 +11,5 @@
     path: /usr/bin/leapp
   register: leapp_utility_check
 
-- name: Add Leapp repos
-  ansible.builtin.shell: |
-    set -o pipefail
-    leapp preupgrade --enablerepo=ripu-upgrade-rhel-10-baseos --enablerepo=ripu-upgrade-rhel-10-appstream
-  args:
-    executable: /bin/bash
+
 ...
