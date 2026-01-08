@@ -8,6 +8,14 @@ controller_templates:
     limit: ALL_rhel
     credentials:
       - Workshop Credential
+  - name: EXTRA / LEAPP Custom Actors
+    description: Deploy custom Leapp actors to RHEL 7 and RHEL 8 hosts
+    project: Project Leapp
+    playbook: build_leapp_supplement.yml
+    inventory: Workshop Inventory
+    limit: "rhel7:rhel8"
+    credentials:
+      - Workshop Credential
   - name: OS / Patch OS to latest
     project: Project Leapp
     playbook: pkgs_full_update.yml
