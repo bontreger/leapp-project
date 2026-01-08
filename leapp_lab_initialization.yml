@@ -21,7 +21,7 @@
 
     - name: Install interesting packages
       ansible.builtin.package:
-        name: java
+        name: glibc-langpack-en
         state: present
       ignore_errors: yes
 
