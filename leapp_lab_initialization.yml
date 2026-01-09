@@ -75,6 +75,8 @@
           ansible.builtin.lineinfile:
             path: /etc/fstab
             line: "//bontregerdev/storage /mnt cifs nofail,nobootwait,credentials=/root/smb.cred,_netdev 0 0"
+      when: ansible_distribution_major_version | int == 7
+        
 
   handlers:
     - name: Restart SSH
