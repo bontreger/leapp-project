@@ -1,25 +1,26 @@
 ---
-- name: Wait for connection...
-  ansible.builtin.wait_for_connection:
-    connect_timeout: 20
-    sleep: 5
-    delay: 5
-    timeout: 300
+- block:
+    - name: Wait for connection...
+      ansible.builtin.wait_for_connection:
+        connect_timeout: 20
+        sleep: 5
+        delay: 5
+        timeout: 300
 
-- name: Include the leapp remediate role"
-  ansible.builtin.import_role:
-    name: infra.leapp.remediate
-  vars:
-    leapp_remediation_todo:
-      - leapp_corrupted_grubenv_file
-      - leapp_missing_efi_bootmgr
-      - leapp_loaded_removed_kernel_drivers
-      - leapp_nfs_detected
-      - leapp_remote_using_root
-      - leapp_cifs_detected
+    - name: Include the leapp remediate role"
+      ansible.builtin.import_role:
+        name: infra.leapp.remediate
+      vars:
+        leapp_remediation_todo:
+          - leapp_corrupted_grubenv_file
+          - leapp_missing_efi_bootmgr
+          - leapp_loaded_removed_kernel_drivers
+          - leapp_nfs_detected
+          - leapp_remote_using_root
+          - leapp_cifs_detected
 
-- name: Include the leapp answer
-  ansible.builtin.command:
-    cmd: leapp answer --section remove_pam_pkcs11_module_check.confirm=True
-
+    - name: Include the leapp answer
+      ansible.builtin.command:
+        cmd: leapp answer --section remove_pam_pkcs11_module_check.confirm=True
+  when: ansible_distribution_major_version | int == 7
 ...
