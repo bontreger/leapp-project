@@ -16,7 +16,6 @@
       - leapp_loaded_removed_kernel_drivers
       - leapp_nfs_detected
       - leapp_remote_using_root
-      - leapp_firewalld_allowzonedrifting
       - leapp_firewalld_unsupported_tftp_client
 
 - name: Include the leapp answer

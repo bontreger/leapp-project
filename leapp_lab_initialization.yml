@@ -63,11 +63,6 @@
           ansible.builtin.package:
             name: efibootmgr
             state: absent
-        - name: firewalld_allowzonedrifting | Set the "AllowZoneDrifting" in firewalld.conf to "yes"
-          ansible.builtin.lineinfile:
-            path: /etc/firewalld/firewalld.conf
-            regexp: ^AllowZoneDrifting=.*
-            line: AllowZoneDrifting=yes
         - name: firewalld_tftp_client | Enable the tftp_client service
           ansible.posix.firewalld:
             service: tftp-client
