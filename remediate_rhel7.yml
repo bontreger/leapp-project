@@ -14,7 +14,6 @@
         remediation_todo:
           - leapp_corrupted_grubenv_file
           - leapp_missing_efi_bootmgr
-          - leapp_loaded_removed_kernel_drivers
           - leapp_nfs_detected
           - leapp_remote_using_root
           - leapp_cifs_detected
