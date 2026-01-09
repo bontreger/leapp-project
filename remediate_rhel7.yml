@@ -36,4 +36,5 @@
     - {key: "PasswordAuthentication", value: "no"}
   notify:
     - Restart sshd
+
 ...

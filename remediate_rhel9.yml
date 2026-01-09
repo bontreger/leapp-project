@@ -11,5 +11,4 @@
     path: /usr/bin/leapp
   register: leapp_utility_check
 
-
 ...

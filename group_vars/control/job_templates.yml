@@ -65,11 +65,6 @@ controller_templates:
             - rhel8
             - rhel9
           required: true
-    extra_vars:
-      leapp_upgrade_type: rhui
-      leapp_repos_enabled: []
-    ask_variables_on_launch: true
-    ask_limit_on_launch: true
   - name: OS / Upgrade
     project: Project Leapp
     playbook: upgrade.yml
@@ -91,11 +86,6 @@ controller_templates:
             - rhel8
             - rhel9
           required: true
-    extra_vars:
-      leapp_upgrade_type: rhui
-      leapp_repos_enabled: []
-    ask_variables_on_launch: true
-    ask_limit_on_launch: true
   - name: OS / Remediation
     project: Project Leapp
     playbook: remediate.yml
