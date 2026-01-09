@@ -1,7 +1,7 @@
 ---
 - name: Analysis
   hosts: "{{ rhel_inventory_group | default(omit) }}"
-  #strategy: free
+  strategy: free
   gather_facts: true
   become: true
   force_handlers: true
@@ -32,25 +32,11 @@
       ignore_errors: true
       when: ansible_distribution_major_version | int == 7
 
-    - name: Set extra repos for rhel7
-      ansible.builtin.set_fact:
-        leapp_repos_enabled:
-          - ripu-upgrade-rhel-8-baseos
-          - ripu-upgrade-rhel-8-appstream
-      when: ansible_distribution_major_version | int == 7
-
     - name: Ensure leapp package and leapp-dependencies are installed and available
       ansible.builtin.package:
         name: leapp, leapp-upgrade-el8toel9, cockpit-leapp
         state: present
       ignore_errors: true
-      when: ansible_distribution_major_version | int == 8
-
-    - name: Set extra repos for rhel8
-      ansible.builtin.set_fact:
-        leapp_repos_enabled:
-          - ripu-upgrade-rhel-9-baseos
-          - ripu-upgrade-rhel-9-appstream
       when: ansible_distribution_major_version | int == 8
 
     - name: Ensure leapp package and leapp-dependencies are installed and available
@@ -60,16 +46,17 @@
       ignore_errors: true
       when: ansible_distribution_major_version | int == 9
 
-    - name: Set extra repos for rhel9
-      ansible.builtin.set_fact:
-        leapp_repos_enabled:
-          - ripu-upgrade-rhel-10-baseos
-          - ripu-upgrade-rhel-10-appstream
-      when: ansible_distribution_major_version | int == 9
-
-  roles:
-    - infra.leapp.analysis
   tasks:
+    - name: Run the analysis roles
+      ansible.builtin.import_role:
+        name: infra.leapp.analysis
+      vars:
+        leapp_repos_enabled:
+          - ripu-upgrade-rhel-{{ ansible_distribution_major_version | int + 1 }}-baseos
+          - ripu-upgrade-rhel-{{ ansible_distribution_major_version | int + 1 }}-appstream
+  
+  
+  
     - name: Confirm check_vdo True in leapp answerfile
       ansible.builtin.replace:
         path: /var/log/leapp/answerfile

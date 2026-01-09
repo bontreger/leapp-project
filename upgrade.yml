@@ -12,6 +12,10 @@
         - name: Perform OS upgrade
           ansible.builtin.import_role:
             name: infra.leapp.upgrade
+          vars:
+            leapp_repos_enabled:
+              - ripu-upgrade-rhel-{{ ansible_distribution_major_version | int + 1 }}-baseos
+              - ripu-upgrade-rhel-{{ ansible_distribution_major_version | int + 1 }}-appstream
           
       always:
         - name: Log upgrade status
