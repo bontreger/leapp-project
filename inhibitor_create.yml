@@ -17,4 +17,30 @@
     - {key: "PasswordAuthentication", value: "yes"}
   notify:
     - Restart sshd
-  when: ansible_distribution_major_version|int == 8
+  when: ansible_distribution_major_version | int == 8
+
+- block:
+  when: ansible_distribution_major_version | int == 7
+    - name: Install nfs-utils package
+      ansible.builtin.package:
+        name: nfs-utils
+        state: present
+    - name: Add dummy entry in fstab with NFS
+      ansible.builtin.lineinfile:
+        path: /etc/fstab
+        line: "rhpds-lab:/nfs/storage /nfsmnt nfs nofail,nobootwait,_netdev 0 0"
+    - name: missing_efibootmgr | Uninstall the package
+      ansible.builtin.package:
+        name: efibootmgr
+        state: absent
+    - name: firewalld_allowzonedrifting | Set the "AllowZoneDrifting" in firewalld.conf to "yes"
+      ansible.builtin.lineinfile:
+        path: /etc/firewalld/firewalld.conf
+        regexp: ^AllowZoneDrifting=.*
+        line: AllowZoneDrifting=yes
+    - name: firewalld_tftp_client | Enable the tftp_client service
+      ansible.posix.firewalld:
+        service: tftp-client
+        state: enabled
+        permanent: true
+        immediate: true

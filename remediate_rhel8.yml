@@ -31,4 +31,8 @@
   notify:
     - Restart sshd
 
+- name: Disable CodeReady Builder repository
+  ansible.builtin.command:
+    cmd: subscription-manager repos --disable=codeready-builder-for-rhel-8-x86_64-rpms
+  ignore_errors: yes
 ...

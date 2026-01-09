@@ -32,6 +32,7 @@
         replace: 'gpgcheck = 0'
 
 
+
     - name: Install interesting packages
       ansible.builtin.package:
         name: glibc-langpack-en
