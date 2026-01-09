@@ -11,7 +11,7 @@
       ansible.builtin.import_role:
         name: infra.leapp.remediate
       vars:
-        leapp_remediation_todo:
+        remediation_todo:
           - leapp_corrupted_grubenv_file
           - leapp_missing_efi_bootmgr
           - leapp_loaded_removed_kernel_drivers
