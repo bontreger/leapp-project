@@ -7,7 +7,7 @@
         delay: 5
         timeout: 300
 
-    - name: Include the leapp remediate role"
+    - name: Include the leapp remediate role
       ansible.builtin.import_role:
         name: infra.leapp.remediate
       vars:
