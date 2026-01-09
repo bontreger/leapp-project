@@ -20,7 +20,6 @@
   when: ansible_distribution_major_version | int == 8
 
 - block:
-  when: ansible_distribution_major_version | int == 7
     - name: Install nfs-utils package
       ansible.builtin.package:
         name: nfs-utils
@@ -44,3 +43,4 @@
         state: enabled
         permanent: true
         immediate: true
+  when: ansible_distribution_major_version | int == 7
