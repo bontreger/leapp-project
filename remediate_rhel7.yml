@@ -16,7 +16,7 @@
       - leapp_loaded_removed_kernel_drivers
       - leapp_nfs_detected
       - leapp_remote_using_root
-      - leapp_firewalld_unsupported_tftp_client
+      - leapp_cifs_detected
 
 - name: Include the leapp answer
   ansible.builtin.command:
